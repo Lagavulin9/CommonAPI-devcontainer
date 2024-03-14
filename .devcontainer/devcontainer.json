@@ -1,0 +1,36 @@
+{
+	"name": "dev container for vsomeip",
+	"build": {
+		"dockerfile": "Dockerfile"
+	},
+	"runArgs": [
+		"--init",
+		"--privileged",
+		"--hostname=vsomeip-contianer"
+	],
+	"containerEnv": {
+		"GITHUB_API_TOKEN": "${localEnv:GITHUB_API_TOKEN}",
+		"GIT_CONFIG_NAME": "${localEnv:GIT_CONFIG_NAME}",
+		"GIT_CONFIG_EMAIL": "${localEnv:GIT_CONFIG_EMAIL}"
+	},
+	"mounts": [
+		"source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,type=bind,consistency=cached"
+	],
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"twxs.cmake",
+				"ms-vscode.cpptools",
+				"ms-vscode.cpptools-extension-pack",
+				"ms-azuretools.vscode-docker"
+			],
+			"settings": {
+				"terminal.integrated.defaultProfile.linux": "bash"
+			}
+		}
+	},
+	"onCreateCommand": "bash .devcontainer/scripts/onCreate.sh",
+	"postStartCommand": "bash .devcontainer/scripts/postStart.sh",
+	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+	"remoteUser": "vscode",
+}
