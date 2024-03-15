@@ -1,12 +1,12 @@
 {
-	"name": "dev container for vsomeip",
+	"name": "dev container for CommonAPI",
 	"build": {
 		"dockerfile": "Dockerfile"
 	},
 	"runArgs": [
 		"--init",
 		"--privileged",
-		"--hostname=vsomeip-contianer"
+		"--hostname=commonapi-contianer"
 	],
 	"containerEnv": {
 		"GITHUB_API_TOKEN": "${localEnv:GITHUB_API_TOKEN}",

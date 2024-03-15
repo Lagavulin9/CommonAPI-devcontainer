@@ -15,7 +15,7 @@ on:
 
 jobs:
   commonapi-code-generator:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - name: 0) Checkout the repository, to have the most recent fidl files. 
         uses: actions/checkout@v2
