@@ -1,5 +1,8 @@
 # Routines for postStart
 
+# git configuration
+git config --global --add safe.directory .
+
 # Create a symbolic link for .ini
 if [ -f "conf/commonapi.ini" ]; then
     export COMMONAPI_CONFIG=$(pwd)/conf/commonapi.ini
